@@ -14,9 +14,11 @@ const Navbar = props => {
   );
   return (
     <nav className="navbar teal lighten-3">
-      <div className="brand-logo">
-        <Link to="/">BeUpto</Link>
-        <i className="material-icons">call_made</i>
+      <div className="container">
+        <div className="brand-logo">
+          <Link to="/">BeUpto</Link>
+          <i className="material-icons">call_made</i>
+        </div>
       </div>
       {links}
     </nav>
