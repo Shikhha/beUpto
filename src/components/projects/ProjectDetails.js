@@ -10,17 +10,25 @@ const ProjectDetails = props => {
   if (!auth.uid) return <Redirect to="/login" />;
   if (task) {
     return (
-      <div className="container section project-details  ">
-        <div className="card cyan lighten-5 z-depth-2">
-          <div className="card-content">
-            <span className="card-title text-darken-3">{task.title}</span>
-            <p>{task.content}</p>
+      <div className="container mt-5 p-2">
+        <div className="card shadow-sm rounded p-2 mb-2">
+          <div className="card-title text-muted text-capitalize">
+            <span className="head-title" style={{ fontSize: "30px" }}>
+              {task.title}
+            </span>
+            <p style={{ fontSize: "20px" }}>{task.content}</p>
           </div>
-          <div className="card-action gret lighten-4 grey-text">
-            <div>
-              Posted by : {task.authorFirstName} {task.authorLastName}{" "}
+          <div className="card-body">
+            <div className="card-footer">
+              <footer className="blockquote-footer text-info">
+                <cite>
+                  <div>
+                    Posted by : {task.authorFirstName} {task.authorLastName}{" "}
+                  </div>
+                  <div>On: {moment(task.createdAt.toDate()).calendar()}</div>
+                </cite>
+              </footer>
             </div>
-            <div>On: {moment(task.createdAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>

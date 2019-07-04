@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const ProjectList = props => {
   return (
-    <div className="project-list section ">
+    <div>
       {props.tasks &&
         props.tasks.map(task => {
           return (
-            <Link to={"/detail/" + task.id} key={task.id}>
+            <Link to={"/detail/" + task.id} className="non-list" key={task.id}>
               <ProjectSummary task={task} />
             </Link>
           );

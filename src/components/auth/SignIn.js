@@ -19,34 +19,43 @@ class SignIn extends Component {
     const { error, auth } = this.props;
     if (auth.uid) return <Redirect to="/" />;
     return (
-      <div className="container">
-        <form className=" white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Sign In</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              value={this.state.email}
-              type="email"
-              onChange={this.handleOnChange}
-            />
+      <div className="container  mt-5">
+        <div className="row">
+          <div className=" col-10 mx-auto">
+            <form className=" signin-form" onSubmit={this.handleSubmit}>
+              <h5 className="signin pb-3">Sign In</h5>
+              <div className="form-group">
+                <label className="text-muted" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="form-control signin-input"
+                  id="email"
+                  value={this.state.email}
+                  type="email"
+                  onChange={this.handleOnChange}
+                />
+              </div>
+              <div className="form-group">
+                <label className="text-muted" htmlFor="password">
+                  Password
+                </label>
+                <input
+                  className="form-control signin-input"
+                  id="password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handleOnChange}
+                />
+              </div>
+
+              <button className="btn signin-button">Submit</button>
+              <div className="text-center text-danger">
+                {error ? <p>{error}</p> : null}
+              </div>
+            </form>
           </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleOnChange}
-            />
-          </div>
-          <div className="input-field">
-            <button className="btn red lighten-3 z-depth-1">Submit</button>
-            <div className="red-text center">
-              {error ? <p>{error}</p> : null}
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
     );
   }

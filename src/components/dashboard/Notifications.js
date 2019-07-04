@@ -4,25 +4,25 @@ import moment from "moment";
 const Notifications = props => {
   const { notifications } = props;
   return (
-    <div className="section">
-      <div className="card z-depth-0">
-        <div className="card-content">
-          <span className="card-title">Notifications</span>
-          <ul className="notifications">
-            {notifications &&
-              notifications.map(note => {
-                return (
-                  <li key={note.id}>
-                    <span className="pink-text">{note.user}</span>{" "}
-                    <span>{note.content}</span>
-                    <div className="grey-text note-date">
-                      {moment(note.time.toDate()).fromNow()}
-                    </div>
-                  </li>
-                );
-              })}
-          </ul>
-        </div>
+    <div className="card shadow-sm not-card rounded p-2 mb-2">
+      <span className="card-title note-title text-muted text-capitalize">
+        Notifications
+      </span>
+      <div className="card-body">
+        <ul>
+          {notifications &&
+            notifications.map(note => {
+              return (
+                <li key={note.id}>
+                  <span className="user">{note.user}</span>{" "}
+                  <span>{note.content}</span>
+                  <div className="grey-text note-date">
+                    {moment(note.time.toDate()).fromNow()}
+                  </div>
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </div>
   );

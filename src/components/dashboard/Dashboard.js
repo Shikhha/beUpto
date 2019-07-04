@@ -12,13 +12,12 @@ class Dashboard extends React.Component {
 
     if (!auth.uid) return <Redirect to="/login" />;
     return (
-      <div className="dashboard container">
-        <div className="row">
-          <div className="col s12 m6">
-            {" "}
+      <div className="container mx-auto my-5" style={{ height: "100vh" }}>
+        <div className="row ">
+          <div className="col-12 col-md-5 mx-auto">
             <ProjectList tasks={tasks} />
           </div>
-          <div className="col s12 m5 offset-m1">
+          <div className="col-12 col-md-5 mx-auto">
             <Notifications notifications={notifications} />
           </div>
         </div>

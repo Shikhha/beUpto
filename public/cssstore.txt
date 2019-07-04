@@ -1,0 +1,29 @@
+<ul className="right">
+      <li>
+        {" "}
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      </li>
+      <li>
+        <NavLink to="/create">New Project</NavLink>
+      </li>
+      <li>
+        <a onClick={props.signOut}>Log Out</a>
+      </li>
+      <li>
+        <NavLink to="/" className="btn btn-floating">
+          {props.profile.initials}
+        </NavLink>
+      </li>
+    </ul>
+	
+	<nav className="navbar teal lighten-3">
+      <div className="container">
+        <div className="brand-logo">
+          <Link to="/">BeUpto</Link>
+          <i className="material-icons">call_made</i>
+        </div>
+      </div>
+      {links}
+    </nav>
+	
+	
