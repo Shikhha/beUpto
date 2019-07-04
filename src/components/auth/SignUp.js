@@ -17,7 +17,7 @@ class SignUp extends Component {
     e.preventDefault();
     const { email, password, firstname, lastname, pwdColor } = this.state;
     if (
-      pwdColor != "text-danger" ||
+      pwdColor === "text-danger" ||
       password === "" ||
       firstname === "" ||
       lastname === "" ||
@@ -84,7 +84,7 @@ class SignUp extends Component {
                   id="passwordHelpBlock"
                   className={"form-text " + this.state.pwdColor}
                 >
-                  Your password must be 5 characters long and contain atleast
+                  Your password must be 6 characters long and contain atleast
                   one numeric character
                 </small>
               </div>
@@ -118,6 +118,11 @@ class SignUp extends Component {
               <button type="submit" className="btn signin-button">
                 Submit
               </button>
+              <span className="text-center p-3 d-sm-block d-md-inline text-danger">
+                {this.props.authError ? (
+                  <span className="text-danger">*{this.props.authError}*</span>
+                ) : null}
+              </span>
               <span className="text-center p-3 text-danger">
                 {this.state.error ? <span>{this.state.error}</span> : null}
               </span>
@@ -130,8 +135,10 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    authError: state.auth.authError
   };
 };
 

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-image: linear-gradient(to right bottom, #a27ee66c, #68f3dc34);
+  background-image: linear-gradient(to right bottom, #a27ee63f, #68f3dc34);
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -12,3 +12,5 @@ body {
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
 }
+
+/* #a27ee63f, #68f3dc34) */

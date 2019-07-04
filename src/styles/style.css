@@ -61,7 +61,6 @@ form {
 }
 
 .summary-card {
-  border-top: 3px solid #15eff662;
   font-family: "Raleway", sans-serif;
 }
 
@@ -76,12 +75,16 @@ form {
   padding-left: 5px;
 }
 .head-title {
-  color: rgb(251, 19, 143);
+  color: rgb(238, 89, 126);
 }
 .head-subtitle {
   font-weight: 100;
-  font-family: "Courgette", cursive;
   font-size: 15px;
+}
+.click-details {
+  font-weight: 100;
+  font-size: 15px;
+  color: rgba(253, 1, 14, 0.411);
 }
 .not-card {
   border-top: 3px solid #a079e462;
@@ -91,6 +94,10 @@ form {
   font-size: 25px;
   padding-top: 6px;
   padding-left: 6px;
+}
+
+.card-body > ul {
+  list-style: none;
 }
 
 .user {
@@ -239,11 +246,16 @@ a:hover {
 }
 
 .btn-floating {
-  background-color: #0c9;
+  background-color: rgba(125, 241, 105, 0.575);
   color: #fff;
-  border-radius: 50px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
   text-align: center;
-  box-shadow: 2px 2px 3px #999;
+  font-weight: 600;
+  padding-top: 10px;
+  vertical-align: middle;
+  box-shadow: 2px 2px 3px #448a83;
   text-transform: uppercase;
   pointer-events: none;
 }
@@ -266,5 +278,5 @@ a:hover {
   max-width: 100vw;
 }
 
-.nav-link:hover {
+.on-expand {
 }

@@ -9,7 +9,9 @@ const ProjectSummary = ({ task }) => {
         <p className="head-subtitle">
           Posted by: {task.authorFirstName} {task.authorLastName}
         </p>
+        <p className="click-details">Click for more details</p>
       </div>
+
       <div className="card-footer">
         <footer className="blockquote-footer text-info">
           <cite> {moment(task.createdAt.toDate()).calendar()}</cite>

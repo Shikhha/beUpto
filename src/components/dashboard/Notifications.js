@@ -4,7 +4,7 @@ import moment from "moment";
 const Notifications = props => {
   const { notifications } = props;
   return (
-    <div className="card shadow-sm not-card rounded p-2 mb-2">
+    <div className="card shadow-sm not-card rounded pl-4 mb-2">
       <span className="card-title note-title text-muted text-capitalize">
         Notifications
       </span>
@@ -13,7 +13,7 @@ const Notifications = props => {
           {notifications &&
             notifications.map(note => {
               return (
-                <li key={note.id}>
+                <li className="mb-1" key={note.id}>
                   <span className="user">{note.user}</span>{" "}
                   <span>{note.content}</span>
                   <div className="grey-text note-date">
