@@ -8,11 +8,30 @@ class SignUp extends Component {
     email: "",
     password: "",
     firstname: "",
-    lastname: ""
+    lastname: "",
+    pwdColor: "text-muted",
+    error: "",
+    required: ""
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.dispatch(signUp(this.state));
+    const { email, password, firstname, lastname, pwdColor } = this.state;
+    if (
+      pwdColor != "text-danger" ||
+      password === "" ||
+      firstname === "" ||
+      lastname === "" ||
+      email === ""
+    ) {
+      this.setState({
+        error: "**signing up failed. Check the required fields**"
+      });
+      this.setState({ required: "*" });
+    } else {
+      this.props.dispatch(signUp(this.state));
+      this.setState({ error: "" });
+      this.setState({ required: "" });
+    }
   };
   handleOnChange = e => {
     this.setState({ [e.target.id]: e.target.value });
@@ -20,7 +39,14 @@ class SignUp extends Component {
       this.handleOnPasswordChange(e.target.value);
     }
   };
-  handleOnPasswordChange = pwd => {};
+  handleOnPasswordChange = pwd => {
+    var mediumRegex = new RegExp("^(?=.*[0-9])(?=.{5,})");
+    if (mediumRegex.test(pwd)) {
+      this.setState({ pwdColor: "text-muted" });
+    } else {
+      this.setState({ pwdColor: "text-danger" });
+    }
+  };
   render() {
     const { auth } = this.props;
     if (auth.uid) return <Redirect to="/" />;
@@ -33,6 +59,7 @@ class SignUp extends Component {
               <div className="form-group">
                 <label className="text-muted" htmlFor="email">
                   Email
+                  <span className="text-danger">{this.state.required}</span>
                 </label>
                 <input
                   className="form-control form-control-sm signin-input"
@@ -53,14 +80,18 @@ class SignUp extends Component {
                   value={this.state.password}
                   onChange={this.handleOnChange}
                 />
-                <small id="passwordHelpBlock" class="form-text text-muted">
-                  Your password must be 8 characters long and must not contain
-                  spaces, special characters, or emoji.
+                <small
+                  id="passwordHelpBlock"
+                  className={"form-text " + this.state.pwdColor}
+                >
+                  Your password must be 5 characters long and contain atleast
+                  one numeric character
                 </small>
               </div>
               <div className="form-group">
                 <label className="text-muted" htmlFor="firstname">
                   First Name
+                  <span className="text-danger">{this.state.required}</span>
                 </label>
                 <input
                   className="form-control form-control-sm signin-input"
@@ -73,6 +104,7 @@ class SignUp extends Component {
               <div className="form-group">
                 <label className="text-muted" htmlFor="lastname">
                   Last Name
+                  <span className="text-danger">{this.state.required}</span>
                 </label>
                 <input
                   className="form-control form-control-sm signin-input"
@@ -86,6 +118,9 @@ class SignUp extends Component {
               <button type="submit" className="btn signin-button">
                 Submit
               </button>
+              <span className="text-center p-3 text-danger">
+                {this.state.error ? <span>{this.state.error}</span> : null}
+              </span>
             </form>
           </div>
         </div>
