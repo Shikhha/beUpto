@@ -30,7 +30,6 @@ npm start
 
 - React.js
 - CSS
-- SCSS
 - Firebase
 
 ## Author
