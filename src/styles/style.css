@@ -249,11 +249,11 @@ a:hover {
   background-color: rgba(125, 241, 105, 0.575);
   color: #fff;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   text-align: center;
   font-weight: 600;
-  padding-top: 10px;
+  padding-top: 8px;
   vertical-align: middle;
   box-shadow: 2px 2px 3px #448a83;
   text-transform: uppercase;

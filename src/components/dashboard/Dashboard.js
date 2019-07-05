@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
 
     if (!auth.uid) return <Redirect to="/login" />;
     return (
-      <div className="container mx-auto my-5" style={{ height: "100vh" }}>
+      <div className="container mx-auto my-5">
         <div className="row ">
           <div className="col-12 col-md-5 mx-auto">
             <ProjectList tasks={tasks} />
